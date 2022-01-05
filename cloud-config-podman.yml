@@ -1,0 +1,27 @@
+#cloud-config
+timezone: Asia/Tokyo
+locale: ja_JP.utf8
+
+package_update: true
+package_upgrade: true
+packages:
+  - podman
+  - python3-pip
+
+bootcmd:
+  - . /etc/os-release
+  - echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+  - curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key | sudo apt-key add -
+
+runcmd:
+  - pip3 install podman-compose
+#  - curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+#  - apt-get install -y nodejs
+#  - corepack enable
+
+#write_files:
+#  - content: |
+#      eval "$(direnv hook bash)"
+#    path: /home/ubuntu/.bashrc
+#    owner: ubuntu:ubuntu
+#    append: true

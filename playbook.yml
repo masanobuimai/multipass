@@ -1,0 +1,34 @@
+- hosts: servers
+  tasks:
+    - import_tasks: ./tasks/base.yml
+  roles:
+    - role: gantsign.oh-my-zsh
+      users:
+        - username: ubuntu
+          oh_my_zsh:
+            plugins:
+              - git
+              - gradle
+              - mvn
+#    - role: willshersystems.sshd
+#      become: yes
+#    - role: geerlingguy.docker
+#      become: yes
+#      docker_users:
+#        - ubuntu
+#    - role: andrewrothstein.podman
+#      become: yes
+    - role: geerlingguy.nodejs
+      become: yes
+      vars:
+        nodejs_version: "16.x"
+    - role: ocha.yarn
+      become: yes
+    - role: comcast.sdkman
+      become: yes
+      sdkman_user: ubuntu
+      sdkman_group: ubuntu
+      sdkman_auto_answer: true
+      sdkman_update: true
+      sdkman_install_packages:
+        - { candidate: java, version: 17.0.1-open }

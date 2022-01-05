@@ -1,0 +1,9 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+packages:
+  - software-properties-common
+  - ansible
+
+bootcmd:
+  - apt-add-repository --yes --update ppa:ansible/ansible

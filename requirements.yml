@@ -1,0 +1,8 @@
+- name: gantsign.oh-my-zsh
+#- name: willshersystems.sshd
+- name: geerlingguy.nodejs
+- name: ocha.yarn
+- name: comcast.sdkman
+#- name: geerlingguy.docker
+#- name: andrewrothstein.podman
+- name: laggyluke.direnv

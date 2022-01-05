@@ -1,0 +1,31 @@
+- name: apt-get update
+  become: true
+  apt: update_cache=yes
+
+- name: common tool install
+  become: true
+  apt: name='zip,unzip,direnv'
+
+- name: git config
+  git_config: scope=global name="{{ item.name }}" value="{{ item.value }}"
+  loop:
+    - name: user.name
+      value: "masanobu.imai"
+    - name: user.email
+      value: "masanobu.imai@gmail.com"
+    - name: core.autocrfl
+      value: "input"
+
+- name: Set timezone
+  timezone:
+    name: Asia/Tokyo
+
+- name: change locale
+  become: true
+  command: update-locale LANG=ja_JP.UTF-8
+
+- name: set direnv zhrc
+  become: false
+  lineinfile:
+    dest: ~/.zshrc
+    line: 'eval "$(direnv hook zsh)"'

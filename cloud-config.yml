@@ -1,0 +1,16 @@
+#cloud-config
+timezone: Asia/Tokyo
+locale: ja_JP.utf8
+
+package_update: true
+package_upgrade: true
+packages:
+  - build-essential
+  - openjdk-11-jre-headless
+  - direnv
+
+runcmd:
+  - curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+  - apt-get install -y nodejs
+  - corepack enable
+  - echo 'eval "$(direnv hook bash)"' >> /home/ubuntu/.bashrc
