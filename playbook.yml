@@ -11,21 +11,21 @@
               - gradle
               - mvn
 #    - role: willshersystems.sshd
-#      become: yes
+#      become: true
 #    - role: geerlingguy.docker
-#      become: yes
+#      become: true
 #      docker_users:
 #        - ubuntu
 #    - role: andrewrothstein.podman
-#      become: yes
+#      become: true
     - role: geerlingguy.nodejs
-      become: yes
+      become: true
       vars:
         nodejs_version: "16.x"
     - role: ocha.yarn
-      become: yes
+      become: true
     - role: comcast.sdkman
-      become: yes
+      become: true
       sdkman_user: ubuntu
       sdkman_group: ubuntu
       sdkman_auto_answer: true
