@@ -57,3 +57,22 @@ sudo apt install -y ansible
 ansible-galaxy install -r requirements.yml -p roles
 ansible-playbook -K -i hosts playbook.yml
 ```
+
+
+## lima - Linux-on-Mac
+
+### インストール
+
+```
+brew install lima
+```
+
+### 使い方
+
+```
+limactl start
+limactl ls
+limactl stop
+
+lima
+```
