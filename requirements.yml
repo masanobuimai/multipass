@@ -1,4 +1,5 @@
-- name: gantsign.oh-my-zsh
+#- name: gantsign.oh-my-zsh
+- name: brianhartsock.prezto
 #- name: willshersystems.sshd
 - name: geerlingguy.nodejs
 - name: ocha.yarn

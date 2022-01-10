@@ -4,7 +4,7 @@
 
 - name: common tool install
   become: true
-  apt: name='build-essential,zip,unzip,direnv'
+  apt: name='zsh,build-essential,zip,unzip,direnv'
 
 - name: git config
   git_config: scope=global name="{{ item.name }}" value="{{ item.value }}"

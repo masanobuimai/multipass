@@ -2,20 +2,21 @@
   tasks:
     - import_tasks: ./tasks/base.yml
   roles:
-    - role: gantsign.oh-my-zsh
-      users:
-        - username: ubuntu
-          oh_my_zsh:
-            plugins:
-              - git
-              - gradle
-              - mvn
+#    - role: gantsign.oh-my-zsh
+#      users:
+#        - username: "{{ ansible_user_id }}"
+#          oh_my_zsh:
+#            plugins:
+#              - git
+#              - gradle
+#              - mvn
+    - role: brianhartsock.prezto
 #    - role: willshersystems.sshd
 #      become: true
 #    - role: geerlingguy.docker
 #      become: true
 #      docker_users:
-#        - ubuntu
+#        - "{{ ansible_user_id }}"
 #    - role: andrewrothstein.podman
 #      become: true
     - role: geerlingguy.nodejs
@@ -26,8 +27,7 @@
       become: true
     - role: comcast.sdkman
       become: true
-      sdkman_user: ubuntu
-      sdkman_group: ubuntu
+      sdkman_user: "{{ ansible_user_id }}"
       sdkman_auto_answer: true
       sdkman_update: true
       sdkman_install_packages:
